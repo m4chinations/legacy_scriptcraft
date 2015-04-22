@@ -1,0 +1,28 @@
+name: scriptcraft
+main: net.walterhiggins.scriptcraft.ScriptCraftPlugin
+version: 2.0.2-2014-02-19
+depends: [Citizens]
+commands:
+   js:
+      description: Evaluate javascript.
+      usage: /<command> Javascript code
+      permission: scriptcraft.evaluate
+      permission-message: You don't have <permission> permission. 
+   jsp:
+      description: run a javascript plugin command.
+      usage: /<command> command-name command-parameters
+      permission: scriptcraft.proxy
+      permission-message: You don't have <permission> permission.
+
+permissions:
+   scriptcraft.*:
+        description: Gives access to all scriptcraft comands
+        children:
+                scriptcraft.evaluate: true
+                scriptcraft.proxy: true
+   scriptcraft.evaluate:
+        description: Allows you to evaluate javascript code
+        default: op
+   scriptcraft.proxy:
+        description: Allows you to run a javascript command blessed by the operator
+        default: true
